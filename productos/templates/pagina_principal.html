@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Productos en lista</h1>
+<ul>
+    {% for pdto in productos %}
+    <li>{{ pdto.nombre }} ($    {{ pdto.precio }})</li>
+    {% endfor %}
+</ul>
+
+<h1>Productos en tarjetas</h1>
+<div class="row">
+    {% for pdto in productos %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ pdto.imagen_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ pdto.nombre }}</h5>
+                <p class="card-text">{{ pdto.descripcion }}</p>
+                <a href="{{ pdto.descripcion }}" class="btn btn-primary">Comprar x {{pdto.moneda}} {{pdto.precio}}</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
